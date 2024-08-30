@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import CardsContainer from "./components/CardsContainer";
 import Search from "./components/Search";
 import Sort from "./components/Sort";
+import { Grid2 } from "@mui/material";
+
 import "./App.css";
 
 function App() {
@@ -48,7 +50,7 @@ function App() {
     if (sortOrder === "desc") {
       return adList.sort((a, b) => b.spend - a.spend);
     }
-    return adList; // Default: "all"
+    return adList;
   };
 
   return (
@@ -56,8 +58,28 @@ function App() {
       <header className="App-header">
         <h1 className="heading">BLUE PRINT SOFTWARE APPRENTICE CHALLENGE</h1>
       </header>
-      <Search search={search} setSearch={setSearch} />
-      <Sort sortOrder={sortOrder} setSortOrder={setSortOrder} />
+      <Grid2
+        container
+        className="functionality"
+        spacing={2}
+        sx={{
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: { xs: "column", sm: "row" },
+        }}
+      >
+        <Grid2 item xs={12} sm={12} md={6} lg={6}>
+          <Search search={search} setSearch={setSearch} />
+        </Grid2>
+        <Grid2 item xs={12} sm={12} md={6} lg={6}>
+          <Sort
+            sortOrder={sortOrder}
+            setSortOrder={setSortOrder}
+            sx={{ width: "100%" }}
+          />
+        </Grid2>
+      </Grid2>
+
       <CardsContainer cards={filteredCards} sortCards={sortCards} />
     </div>
   );

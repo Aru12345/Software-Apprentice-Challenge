@@ -28,12 +28,7 @@
   font-weight: 900;
   font-size: 1.2rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.functionality {
+  margin: 2% 0 2% 0;
+  gap: 1rem;
 }
